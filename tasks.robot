@@ -64,8 +64,8 @@ ${Paste_ShortCut}                       CONTROL+v
 
 *** Tasks ***
 Entire Process
-    ${Excel_File_Path}=    Collect Excel file from the user
-    Open Browser And Login
+    ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
+    Open Browser And Login    ${USERNAME}    ${PASSWORD}
     ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
     FOR    ${Episode}    IN    @{Episodes}
         ${Title}=    Set Variable
@@ -92,22 +92,25 @@ Entire Process
 Collect Excel file from the user
     Add heading    Upload Excel File
     Add image    CoverImage.jpeg    width=1300
+    add text input    email    Email Address    placeholder= Enter your email here
+    Add password input    password    Password    placeholder=Enter your password here     
     Add file input
     ...    label=Upload the Excel file with Episodes Data
     ...    name=fileupload
     ...    file_type=Excel files (*.xlsx)
     ...    destination=${OUTPUT_DIR}
     ${response}=    Run dialog
-    RETURN    ${response.fileupload}[0]
+    RETURN    ${response.fileupload}[0]    ${response.email}    ${response.password}
 
 Open Browser And Login
+    [Arguments]    ${user}    ${pass}
     Set Selenium Speed    5
     Set Selenium Implicit Wait    15
     Set Selenium Timeout    15
     Open Available Browser    https://anchor.fm/login    maximized=${TRUE}
-    ${secret}=    Get Secret    Anchor_Creds
-    Input Text When Element Is Visible    id:email    ${secret}[username]
-    Input Text When Element Is Visible    id:password    ${secret}[password]
+    # ${secret}=    Get Secret    Anchor_Creds
+    Input Text When Element Is Visible    id:email    ${user}
+    Input Text When Element Is Visible    id:password    ${pass}
     Click Element When Visible    alias:Span
 
 Read Excel Sheet
@@ -263,7 +266,3 @@ Enter date
     Wait Until Keyword Succeeds    10x    30 seconds    Submit Form
 
     Click Element When Visible    ${Close-Publish-PopUp_Button}
-
-*** Tasks ***
-
-*** Keywords ***
