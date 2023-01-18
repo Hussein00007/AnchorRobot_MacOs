@@ -124,7 +124,7 @@ Upload One File And Thumbnail
     Click Element When Visible    ${Quick-Upload_Button}
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
     Type text into
-    ...    c${Episode-Upload-File_Coordinates}
+    ...    ${Episode-Upload-File_Coordinates}
     ...    ${Files_To_Upload}${Episode_Name}
     ...    Clear: bool= FALSE
     ...    enter: bool= TRUE
