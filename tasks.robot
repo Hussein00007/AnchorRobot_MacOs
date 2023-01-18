@@ -55,8 +55,8 @@ ${Confirm-Date_Button}
 ...                                     xpath:/html/body/reach-portal/div[2]/div/div/div/div[2]/div[2]/button[2]/span[1]
 ${Close-Publish-PopUp_Button}           xpath:/html/body/reach-portal/div[2]/div/div/div/div[1]/button
 ${Date-Now_Button}                      xpath://*[@id="app-content"]/div/form/div[5]/div/button
-${Episode-Upload-File_Coordinates}      coordinates:1550,710
-${Thumnnail-Upload_Coordinates}         coordinates:1500,710
+${Episode-Upload-File_Coordinates}      coordinates:359,448
+${Thumnnail-Upload_Coordinates}         coordinates:359,448
 ${Paste_ShortCut}                       CONTROL+v
 
 #####################
