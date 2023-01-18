@@ -1,0 +1,30 @@
+{
+    "Email": {
+        "screenshot": ".images\\email-screenshot.png",
+        "source": "https://anchor.fm/login",
+        "strategy": "id",
+        "type": "browser",
+        "value": "email"
+    },
+    "Password": {
+        "screenshot": ".images\\password-screenshot.png",
+        "source": "https://anchor.fm/login",
+        "strategy": "id",
+        "type": "browser",
+        "value": "password"
+    },
+    "SignIn": {
+        "screenshot": ".images\\signin-screenshot.png",
+        "source": "https://anchor.fm/login",
+        "strategy": "link",
+        "type": "browser",
+        "value": "Sign in"
+    },
+    "Span": {
+        "screenshot": ".images\\span-screenshot.png",
+        "source": "https://anchor.fm/login",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//span[contains(.,'Log in')]"
+    }
+}
