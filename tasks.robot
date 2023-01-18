@@ -142,7 +142,7 @@ Upload One File And Thumbnail
 
 Enter Episode Details
     [Arguments]    ${Title}    ${Description}    ${Episode_Number}
-    Wait Until Keyword Succeeds    10x    3 seconds    Input Text    id:title    ${Title}
+    Wait Until Keyword Succeeds    30x    3 seconds    Input Text    id:title    ${Title}
     Input Text    id:podcastEpisodeNumber    ${Episode_Number}
     Click Element When Visible    ${Switch-To-HTML_Button}
     Click Element When Visible    ${Description_Field}
