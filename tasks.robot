@@ -16,7 +16,7 @@ Library     RPA.Dialogs
 
 *** Variables ***
 ${Files_To_Upload}
-...                                     C:\\Users\\HusseinMaher\\OneDrive - Evolvant Technologies\\Documents\\Episodes\\ToUpload\\
+...                                     D:\\Work\\Freelancing\\AnchorFM_Process\\Episodes\\
 ${Uploaded_Files}
 ...                                     C:\\Users\\HusseinMaher\\OneDrive - Evolvant Technologies\\Documents\\Episodes\\Uploaded
 @{First15DaysRows}                      1    2    3
