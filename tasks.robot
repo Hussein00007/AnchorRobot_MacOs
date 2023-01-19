@@ -55,8 +55,9 @@ ${Confirm-Date_Button}
 ...                                     xpath:/html/body/reach-portal/div[2]/div/div/div/div[2]/div[2]/button[2]/span[1]
 ${Close-Publish-PopUp_Button}           xpath:/html/body/reach-portal/div[2]/div/div/div/div[1]/button
 ${Date-Now_Button}                      xpath://*[@id="app-content"]/div/form/div[5]/div/button
-${Episode-Upload-File_Coordinates}      coordinates:359,448
-${Thumnnail-Upload_Coordinates}         coordinates:359,448
+${Episode-Upload-File_Coordinates}      coordinates:359,444
+${Thumnnail-Upload_Coordinates}         coordinates:359,444
+${Upload-Filename-Write_OCR}            ocr:File name
 ${Paste_ShortCut}                       CONTROL+v
 
 #####################
@@ -126,6 +127,8 @@ Upload One File And Thumbnail
     Click Element When Visible    ${New-Episode_Button}
     Click Element When Visible    ${Quick-Upload_Button}
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
+    Click    ${Episode-Upload-File_Coordinates}
+    Sleep    1 second
     Type text into
     ...    ${Episode-Upload-File_Coordinates}
     ...    ${Files_To_Upload}${Episode_Name}
@@ -133,6 +136,8 @@ Upload One File And Thumbnail
     ...    enter: bool= TRUE
     Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
     Click Element When Visible    ${Upload-Thumbnail_Button}
+    Sleep    1 second
+    Click    ${Thumnnail-Upload_Coordinates}
     Type text into
     ...    ${Thumnnail-Upload_Coordinates}
     ...    ${Files_To_Upload}${Thumbnail}
@@ -142,7 +147,7 @@ Upload One File And Thumbnail
 
 Enter Episode Details
     [Arguments]    ${Title}    ${Description}    ${Episode_Number}
-    Wait Until Keyword Succeeds    30x    3 seconds    Input Text    id:title    ${Title}
+    Wait Until Keyword Succeeds    500x    3 seconds    Input Text    id:title    ${Title}
     Input Text    id:podcastEpisodeNumber    ${Episode_Number}
     Click Element When Visible    ${Switch-To-HTML_Button}
     Click Element When Visible    ${Description_Field}
