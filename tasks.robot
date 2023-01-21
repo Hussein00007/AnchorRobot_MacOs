@@ -55,7 +55,7 @@ ${Confirm-Date_Button}
 ...                                     xpath:/html/body/reach-portal/div[2]/div/div/div/div[2]/div[2]/button[2]/span[1]
 ${Close-Publish-PopUp_Button}           xpath:/html/body/reach-portal/div[2]/div/div/div/div[1]/button
 ${Date-Now_Button}                      xpath://*[@id="app-content"]/div/form/div[5]/div/button
-${Episode-Upload-File_Coordinates}      coordinates:359,444
+${Episode-Upload-File_Coordinates}      coordinates:604,148
 ${Thumnnail-Upload_Coordinates}         coordinates:359,444
 ${Upload-Filename-Write_OCR}            ocr:File name
 ${Paste_ShortCut}                       Windows+v
@@ -296,4 +296,11 @@ Test Keyword
     Click Element When Visible    alias:Span
     Click Element When Visible    ${New-Episode_Button}
     Click Element When Visible    ${Quick-Upload_Button}
-    RPA.browser.selenium.Press Keys    None    ${OpenGoTab_Shortcut}     
+    Sleep    3 seconds
+    RPA.Desktop.Click    ocr:OpenPathEditor  
+    Sleep    1 second
+    Type text into
+    ...    ${Thumnnail-Upload_Coordinates}
+    ...    HELLOOO
+    ...    Clear: bool= TRUE
+    ...    enter: bool= TRUE
