@@ -297,7 +297,7 @@ Test Keyword
     Click Element When Visible    ${New-Episode_Button}
     Click Element When Visible    ${Quick-Upload_Button}
     Sleep    3 seconds
-    RPA.Desktop.Click    ocr:OpenPathEditor  
+    RPA.Browser.Selenium.Press Keys    ${OpenGoTab_Shortcut}   
     Sleep    1 second
     Type text into
     ...    ${Thumnnail-Upload_Coordinates}
