@@ -11,3 +11,4 @@ dependencies:
   - pip:
     - rpaframework==19.4.2
     - rpaframework-windows==6.2.0
+    - rpaframework-recognition==5.0.0
