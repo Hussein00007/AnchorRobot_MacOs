@@ -59,6 +59,7 @@ ${Episode-Upload-File_Coordinates}      coordinates:359,444
 ${Thumnnail-Upload_Coordinates}         coordinates:359,444
 ${Upload-Filename-Write_OCR}            ocr:File name
 ${Paste_ShortCut}                       Windows+v
+${OpenGoTab_Shortcut}                   Command+Shift+g    
 
 #####################
 
@@ -134,6 +135,7 @@ Upload One File And Thumbnail
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
     Click    ${Episode-Upload-File_Coordinates}
     Sleep    1 second
+    RPA.Browser.Selenium.Press Keys    None    ${OpenGoTab_Shortcut}  
     Type text into
     ...    ${Episode-Upload-File_Coordinates}
     ...    ${Files_To_Upload}${Episode_Name}
