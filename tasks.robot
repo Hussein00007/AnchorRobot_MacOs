@@ -135,7 +135,7 @@ Upload One File And Thumbnail
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
     Click    ${Episode-Upload-File_Coordinates}
     Sleep    3 seconds
-    RPA.Desktop.Press Keys    SHIFT    CMD    G  
+    RPA.Desktop.Press Keys    SHIFT    LWin    G  
     Sleep    3 seconds
     Type text into
     ...    ${Episode-Upload-File_Coordinates}
