@@ -280,4 +280,4 @@ Enter date
 
 Test Keyword
 
-    Open application    notepad.exe
+    Open application    notes.exe
