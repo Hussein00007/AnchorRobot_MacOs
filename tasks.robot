@@ -69,29 +69,29 @@ ${Paste_ShortCut}                       Windows+v
 
 Entire Process
 
-    Test Keyword
-    # ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
-    # Open Browser And Login    ${USERNAME}    ${PASSWORD}
-    # ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
-    # FOR    ${Episode}    IN    @{Episodes}
-    #     ${Title}=    Set Variable
-    #     ...    ${Episode}[TITLE_PREFIX]${Episode}[EPISODE_NUMBER]${Episode}[SEPERATOR] ${Episode}[CATEGORY] - ${Episode}[TITLE] - ${Episode}[GUEST]
-    #     ${Description}=    Set Variable
-    #     ...    ${Episode}[DESCRIPTION_HEADER] <br><br> <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
-    #     @{Date}=    Split String    ${Episode}[PUBLISH_DATE]    ${SPACE}
-    #     ${Day}=    Get From List    ${Date}    0
-    #     ${Month}=    Get From List    ${Date}    1
-    #     ${Year}=    Get From List    ${Date}    2
-    #     @{Time}=    Split String    ${Episode}[PUBLISH_TIME]    ${SPACE}
-    #     ${Hour}=    Get From List    ${Time}    0
-    #     ${Minute}=    Get From List    ${Time}    1
-    #     Upload One File And Thumbnail    ${Episode}[FILENAME]    ${Episode}[THUMBNAIL]
-    #     Enter Episode Details    ${Title}    ${Description}    ${Episode}[EPISODE_NUMBER]
-    #     Enter date    ${Day}    ${Month}    ${Year}    ${Hour}    ${Minute}    ${Episode}[AM_PM]
-    # END
-    # Upload One File And Thumbnail    Episode25.mp4    PNG.png
-    # Enter Episode Details    Episode_Title    Description    14
-    # Enter date    6    05    2023    02    30    PM
+    
+    ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
+    Open Browser And Login    ${USERNAME}    ${PASSWORD}
+    ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
+    FOR    ${Episode}    IN    @{Episodes}
+        ${Title}=    Set Variable
+        ...    ${Episode}[TITLE_PREFIX]${Episode}[EPISODE_NUMBER]${Episode}[SEPERATOR] ${Episode}[CATEGORY] - ${Episode}[TITLE] - ${Episode}[GUEST]
+        ${Description}=    Set Variable
+        ...    ${Episode}[DESCRIPTION_HEADER] <br><br> <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
+        @{Date}=    Split String    ${Episode}[PUBLISH_DATE]    ${SPACE}
+        ${Day}=    Get From List    ${Date}    0
+        ${Month}=    Get From List    ${Date}    1
+        ${Year}=    Get From List    ${Date}    2
+        @{Time}=    Split String    ${Episode}[PUBLISH_TIME]    ${SPACE}
+        ${Hour}=    Get From List    ${Time}    0
+        ${Minute}=    Get From List    ${Time}    1
+        Upload One File And Thumbnail    ${Episode}[FILENAME]    ${Episode}[THUMBNAIL]
+        Enter Episode Details    ${Title}    ${Description}    ${Episode}[EPISODE_NUMBER]
+        Enter date    ${Day}    ${Month}    ${Year}    ${Hour}    ${Minute}    ${Episode}[AM_PM]
+    END
+    Upload One File And Thumbnail    Episode25.mp4    PNG.png
+    Enter Episode Details    Episode_Title    Description    14
+    Enter date    6    05    2023    02    30    PM
 
 
 *** Keywords ***
