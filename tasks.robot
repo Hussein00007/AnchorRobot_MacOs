@@ -70,29 +70,29 @@ ${OpenGoTab_Shortcut}                   Command+Shift+g
 
 Entire Process
 
-    
-    ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
-    Open Browser And Login    ${USERNAME}    ${PASSWORD}
-    ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
-    FOR    ${Episode}    IN    @{Episodes}
-        ${Title}=    Set Variable
-        ...    ${Episode}[TITLE_PREFIX]${Episode}[EPISODE_NUMBER]${Episode}[SEPERATOR] ${Episode}[CATEGORY] - ${Episode}[TITLE] - ${Episode}[GUEST]
-        ${Description}=    Set Variable
-        ...    ${Episode}[DESCRIPTION_HEADER] <br><br> <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
-        @{Date}=    Split String    ${Episode}[PUBLISH_DATE]    ${SPACE}
-        ${Day}=    Get From List    ${Date}    0
-        ${Month}=    Get From List    ${Date}    1
-        ${Year}=    Get From List    ${Date}    2
-        @{Time}=    Split String    ${Episode}[PUBLISH_TIME]    ${SPACE}
-        ${Hour}=    Get From List    ${Time}    0
-        ${Minute}=    Get From List    ${Time}    1
-        Upload One File And Thumbnail    ${Episode}[FILENAME]    ${Episode}[THUMBNAIL]
-        Enter Episode Details    ${Title}    ${Description}    ${Episode}[EPISODE_NUMBER]
-        Enter date    ${Day}    ${Month}    ${Year}    ${Hour}    ${Minute}    ${Episode}[AM_PM]
-    END
-    Upload One File And Thumbnail    Episode25.mp4    PNG.png
-    Enter Episode Details    Episode_Title    Description    14
-    Enter date    6    05    2023    02    30    PM
+    Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
+    # ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
+    # Open Browser And Login    ${USERNAME}    ${PASSWORD}
+    # ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
+    # FOR    ${Episode}    IN    @{Episodes}
+    #     ${Title}=    Set Variable
+    #     ...    ${Episode}[TITLE_PREFIX]${Episode}[EPISODE_NUMBER]${Episode}[SEPERATOR] ${Episode}[CATEGORY] - ${Episode}[TITLE] - ${Episode}[GUEST]
+    #     ${Description}=    Set Variable
+    #     ...    ${Episode}[DESCRIPTION_HEADER] <br><br> <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
+    #     @{Date}=    Split String    ${Episode}[PUBLISH_DATE]    ${SPACE}
+    #     ${Day}=    Get From List    ${Date}    0
+    #     ${Month}=    Get From List    ${Date}    1
+    #     ${Year}=    Get From List    ${Date}    2
+    #     @{Time}=    Split String    ${Episode}[PUBLISH_TIME]    ${SPACE}
+    #     ${Hour}=    Get From List    ${Time}    0
+    #     ${Minute}=    Get From List    ${Time}    1
+    #     Upload One File And Thumbnail    ${Episode}[FILENAME]    ${Episode}[THUMBNAIL]
+    #     Enter Episode Details    ${Title}    ${Description}    ${Episode}[EPISODE_NUMBER]
+    #     Enter date    ${Day}    ${Month}    ${Year}    ${Hour}    ${Minute}    ${Episode}[AM_PM]
+    # END
+    # Upload One File And Thumbnail    Episode25.mp4    PNG.png
+    # Enter Episode Details    Episode_Title    Description    14
+    # Enter date    6    05    2023    02    30    PM
 
 
 *** Keywords ***
@@ -281,6 +281,19 @@ Enter date
     Click Element When Visible    ${Close-Publish-PopUp_Button}
 
 
+
+
 Test Keyword
 
-    Open application    notes.exe
+    [Arguments]    ${user}    ${pass}
+    Set Selenium Speed    5
+    Set Selenium Implicit Wait    15
+    Set Selenium Timeout    15
+    Open Available Browser    https://anchor.fm/login    maximized=${TRUE}
+    # ${secret}=    Get Secret    Anchor_Creds
+    Input Text When Element Is Visible    id:email    ${user}
+    Input Text When Element Is Visible    id:password    ${pass}
+    Click Element When Visible    alias:Span
+    Click Element When Visible    ${New-Episode_Button}
+    Click Element When Visible    ${Quick-Upload_Button}
+    RPA.DESKTOP.Press Keys    cmd    shift    0    
