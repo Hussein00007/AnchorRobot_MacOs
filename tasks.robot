@@ -134,8 +134,9 @@ Upload One File And Thumbnail
     Click Element When Visible    ${Quick-Upload_Button}
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
     Click    ${Episode-Upload-File_Coordinates}
-    Sleep    1 second
-    RPA.Browser.Selenium.Press Keys    None    ${OpenGoTab_Shortcut}  
+    Sleep    4 seconds
+    RPA.Desktop.Press Keys    COMMAND    SHIFT    G  
+    Sleep    4 seconds
     Type text into
     ...    ${Episode-Upload-File_Coordinates}
     ...    ${Files_To_Upload}${Episode_Name}
