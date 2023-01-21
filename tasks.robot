@@ -59,7 +59,7 @@ ${Episode-Upload-File_Coordinates}      coordinates:359,444
 ${Thumnnail-Upload_Coordinates}         coordinates:359,444
 ${Upload-Filename-Write_OCR}            ocr:File name
 ${Paste_ShortCut}                       Windows+v
-${OpenGoTab_Shortcut}                   Command+Shift+g    
+${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G    
 
 #####################
 
@@ -296,4 +296,4 @@ Test Keyword
     Click Element When Visible    alias:Span
     Click Element When Visible    ${New-Episode_Button}
     Click Element When Visible    ${Quick-Upload_Button}
-    RPA.DESKTOP.Press Keys    cmd    shift    0    
+    RPA.browser.selenium.Press Keys    None    ${OpenGoTab_Shortcut}     
