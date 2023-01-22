@@ -59,7 +59,9 @@ ${Episode-Upload-File_Coordinates}      coordinates:604,148
 ${Thumnnail-Upload_Coordinates}         coordinates:359,444
 ${Upload-Filename-Write_OCR}            ocr:File name
 ${Paste_ShortCut}                       Windows+v
-${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G    
+${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G 
+${USERNAME}                             batmansehs@yahoo.com
+${PASSWORD}                             Hkh*psdk1
 
 #####################
 
@@ -70,7 +72,7 @@ ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G
 
 Entire Process
     ${Excel_File_Path}=    Collect Excel file from the user
-    Open Browser And Login    batmansehs@yahoo.com    Hkh*psdk1
+    Open Browser And Login    ${USERNAME}    ${PASSWORD}
     ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
     FOR    ${Episode}    IN    @{Episodes}
         ${Title}=    Set Variable
@@ -137,12 +139,12 @@ Upload One File And Thumbnail
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
     Sleep     1 second
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
-    Sleep     10 seconds
+    Sleep     3 seconds
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Sleep     5 seconds  
     ${stripped}=    Strip String    ${Files_To_Upload}${Thumbnail}
 
-    IF    '${Thumbnail}' != '0'
+    IF    '${Thumbnail}' == 'yyyyyyy'
         Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
         Click Element When Visible    ${Upload-Thumbnail_Button}
         Sleep     1 second
