@@ -70,7 +70,7 @@ ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G
 
 Entire Process
 
-    Test Keyword    
+    Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
     # ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
     # Open Browser And Login    ${USERNAME}    ${PASSWORD}
     # ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
@@ -285,7 +285,22 @@ Enter date
 
 Test Keyword
 
-    Sleep    5 seconds
-    RPA.Desktop.Press Keys    cmd    c 
+    [Arguments]    ${user}    ${pass}
+    Set Selenium Speed    5
+    Set Selenium Implicit Wait    15
+    Set Selenium Timeout    15
+    Open Available Browser    https://anchor.fm/login    maximized=${TRUE}
+    # ${secret}=    Get Secret    Anchor_Creds
+    Input Text When Element Is Visible    id:email    ${user}
+    Input Text When Element Is Visible    id:password    ${pass}
+    Click Element When Visible    alias:Span
+    Click Element When Visible    ${New-Episode_Button}
+    Click Element When Visible    ${Quick-Upload_Button}
+    Sleep    3 seconds
+    RPA.Desktop.Press Keys    shift    cmd    shift    g  
     Sleep    1 second
-    
+    Type text into
+    ...    ${Thumnnail-Upload_Coordinates}
+    ...    HELLOOO
+    ...    Clear: bool= TRUE
+    ...    enter: bool= TRUE
