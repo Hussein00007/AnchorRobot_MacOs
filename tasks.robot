@@ -308,7 +308,7 @@ Test Keyword
 Test Keyboard   
     Open Available Browser    www.google.com
     Sleep    3 seconds
-    RPA.Browser.Selenium.Press Keys    None    COMMAND+SHIFT+G 
+    RPA.Browser.Selenium.Press Keys    /html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input    COMMAND+SHIFT+G 
     Sleep    1 second
 
 
