@@ -126,31 +126,27 @@ Read Excel Sheet
 
 Upload One File And Thumbnail
     [Arguments]    ${Episode_Name}    ${Thumbnail}
-    Sleep    2 seconds
+    Sleep     2 seconds
     Click Element When Visible    ${New-Episode_Button}
-    Sleep    2 seconds
+    Sleep     2 seconds
     Click Element When Visible    ${Quick-Upload_Button}
-    Sleep    1 second
+    Sleep     1 second
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
     RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
-    Sleep    3 seconds
-    Click    ${Episode-Upload-File_Coordinates}
-    Sleep    1 second    
+    Sleep     3 seconds   
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
-    Sleep    1 second
+    Sleep     1 second
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Sleep     5 seconds
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter    
     Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
     Click Element When Visible    ${Upload-Thumbnail_Button}
-    Sleep    1 second
+    Sleep     1 second
     RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
-    Sleep    3 seconds
-    Set Clipboard Value    ${Files_To_Upload}${Thumbnail}
-    Click    ${Episode-Upload-File_Coordinates}
-    Sleep    2 seconds    
+    Sleep     3 seconds
+    Set Clipboard Value    ${Files_To_Upload}${Thumbnail}   
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
-    Sleep    1 second
+    Sleep     2 seconds
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Sleep     5 seconds
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
