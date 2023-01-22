@@ -308,6 +308,7 @@ Test Keyword
 Test Keyboard   
     Sleep    3 seconds
     RPA.Desktop.Press Keys    shift    cmd    shift    g  
+    RPA.Desktop.Press Keys    shift    cmd    shift    g 
     Sleep    1 second
 
 
