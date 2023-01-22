@@ -139,7 +139,8 @@ Upload One File And Thumbnail
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Sleep     5 seconds
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter  
-    IF    '${Files_To_Upload}${Thumbnail}' != ''
+    
+    IF    '${Files_To_Upload}${Thumbnail}' != '0'
         Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
         Click Element When Visible    ${Upload-Thumbnail_Button}
         Sleep     1 second
