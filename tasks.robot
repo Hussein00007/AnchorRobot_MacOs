@@ -306,7 +306,7 @@ Test Keyword
     ...    enter: bool= TRUE
 
 Test Keyboard   
-    Open Available Browser    None
+    Open Available Browser    www.google.com
     Sleep    3 seconds
     RPA.Browser.Selenium.Press Keys    None    COMMAND+SHIFT+G 
     Sleep    1 second
