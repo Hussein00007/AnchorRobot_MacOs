@@ -145,7 +145,7 @@ Upload One File And Thumbnail
     RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
     Set Clipboard Value    ${Files_To_Upload}${Thumbnail}
     Click    ${Episode-Upload-File_Coordinates}
-    Sleep    1 second    
+    Sleep    2 seconds    
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
     Sleep    1 second
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
