@@ -137,8 +137,9 @@ Upload One File And Thumbnail
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
     Sleep     1 second
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
-    Sleep     5 seconds
-    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter  
+    Sleep     10 seconds
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
+    Sleep     5 seconds  
     ${stripped}=    Strip String    ${Files_To_Upload}${Thumbnail}
 
     IF    '${Thumbnail}' != '0'
