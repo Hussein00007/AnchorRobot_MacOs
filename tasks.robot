@@ -16,7 +16,7 @@ Library     RPA.Dialogs
 
 *** Variables ***
 ${Files_To_Upload}
-...                                     D:\\Work\\Freelancing\\AnchorFM_Process\\Episodes\\
+...                                     /Users/se7s/Downloads/
 ${Uploaded_Files}
 ...                                     C:\\Users\\HusseinMaher\\OneDrive - Evolvant Technologies\\Documents\\Episodes\\Uploaded
 @{First15DaysRows}                      1    2    3
@@ -126,10 +126,13 @@ Read Excel Sheet
 
 Upload One File And Thumbnail
     [Arguments]    ${Episode_Name}    ${Thumbnail}
+    Sleep    2 seconds
     Click Element When Visible    ${New-Episode_Button}
+    Sleep    2 seconds
     Click Element When Visible    ${Quick-Upload_Button}
     Sleep    1 second
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
+    RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
     Click    ${Episode-Upload-File_Coordinates}
     Sleep    1 second    
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
@@ -139,10 +142,12 @@ Upload One File And Thumbnail
     Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
     Click Element When Visible    ${Upload-Thumbnail_Button}
     Sleep    1 second
+    RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
     Set Clipboard Value    ${Files_To_Upload}${Thumbnail}
     Click    ${Episode-Upload-File_Coordinates}
     Sleep    1 second    
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
+    Sleep    1 second
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Sleep     5 seconds
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
