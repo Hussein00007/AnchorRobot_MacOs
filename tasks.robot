@@ -69,8 +69,8 @@ ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G
 
 
 Entire Process
-
-    Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
+    Test Keyboard
+    # Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
     # ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
     # Open Browser And Login    ${USERNAME}    ${PASSWORD}
     # ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
@@ -304,3 +304,10 @@ Test Keyword
     ...    HELLOOO
     ...    Clear: bool= TRUE
     ...    enter: bool= TRUE
+
+Test Keyboard   
+    Sleep    3 seconds
+    RPA.Desktop.Press Keys    shift    cmd    shift    g  
+    Sleep    1 second
+
+
