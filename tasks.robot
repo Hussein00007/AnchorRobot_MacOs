@@ -300,12 +300,10 @@ Test Keyword
     RPA.Desktop.Press Keys    shift    cmd    esc  
     Sleep    1 second
     Click    ${Episode-Upload-File_Coordinates}
-    RPA.Browser.Selenium.Press Keys    None    dgsdgeweqqqq
-    Type text into
-    ...    ${Episode-Upload-File_Coordinates}
-    ...    HELLOOO
-    ...    Clear: bool= TRUE
-    ...    enter: bool= TRUE
+    Set Clipboard Value    RPAFREAK  
+    Paste From Clipboard    ${Episode-Upload-File_Coordinates}      
+    RPA.Desktop.Press Keys    RETURN 
+
 
 Test Keyboard   
     Open Available Browser    www.google.com
