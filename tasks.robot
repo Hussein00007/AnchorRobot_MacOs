@@ -299,8 +299,9 @@ Test Keyword
     Sleep    3 seconds
     RPA.Desktop.Press Keys    shift    cmd    esc  
     Sleep    1 second
+    Click    ${Episode-Upload-File_Coordinates}
     Type text into
-    ...    ${Thumnnail-Upload_Coordinates}
+    ...    ${Episode-Upload-File_Coordinates}
     ...    HELLOOO
     ...    Clear: bool= TRUE
     ...    enter: bool= TRUE
