@@ -307,8 +307,7 @@ Test Keyword
 
 Test Keyboard   
     Sleep    3 seconds
-    RPA.Desktop.Press Keys    g    cmd    shift    g  
-    RPA.Desktop.Press Keys    g    cmd    shift    g 
+    RPA.Browser.Selenium.Press Keys    None    COMMAND+SHIFT+G 
     Sleep    1 second
 
 
