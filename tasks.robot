@@ -138,19 +138,22 @@ Upload One File And Thumbnail
     Sleep     1 second
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Sleep     5 seconds
-    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter    
-    Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
-    Click Element When Visible    ${Upload-Thumbnail_Button}
-    Sleep     1 second
-    RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
-    Sleep     3 seconds
-    Set Clipboard Value    ${Files_To_Upload}${Thumbnail}   
-    RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
-    Sleep     2 seconds
-    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
-    Sleep     5 seconds
-    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
-    Click Element When Visible    ${Confirm-Thumbnail_Button}
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter  
+    IF    '${Files_To_Upload}${Thumbnail}' != ''
+        Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
+        Click Element When Visible    ${Upload-Thumbnail_Button}
+        Sleep     1 second
+        RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
+        Sleep     3 seconds
+        Set Clipboard Value    ${Files_To_Upload}${Thumbnail}   
+        RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
+        Sleep     2 seconds
+        RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
+        Sleep     5 seconds
+        RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
+        Click Element When Visible    ${Confirm-Thumbnail_Button}
+    END  
+    
 
 Enter Episode Details
     [Arguments]    ${Title}    ${Description}    ${Episode_Number}
