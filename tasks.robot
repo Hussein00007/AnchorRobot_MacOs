@@ -69,7 +69,7 @@ ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G
 
 
 Entire Process
-    Test Keyboard
+    Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
     # Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
     # ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
     # Open Browser And Login    ${USERNAME}    ${PASSWORD}
@@ -297,7 +297,7 @@ Test Keyword
     Click Element When Visible    ${New-Episode_Button}
     Click Element When Visible    ${Quick-Upload_Button}
     Sleep    3 seconds
-    RPA.Desktop.Press Keys    shift    cmd    shift    g  
+    RPA.Desktop.Press Keys    shift    cmd    esc  
     Sleep    1 second
     Type text into
     ...    ${Thumnnail-Upload_Coordinates}
