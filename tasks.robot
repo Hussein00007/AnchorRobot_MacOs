@@ -160,7 +160,7 @@ Enter Episode Details
     Click Element When Visible    ${Switch-To-HTML_Button}
     Click Element When Visible    ${Description_Field}
     Set Clipboard Value    ${Description}
-    RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
+    RPA.Browser.Selenium.Press Keys    None    COMMAND+V
     
 
 Enter date
