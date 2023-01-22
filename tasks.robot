@@ -102,7 +102,7 @@ Collect Excel file from the user
     ...    name=fileupload
     ...    file_type=Excel files (*.xlsx)
     ...    destination=${OUTPUT_DIR}
-    ${response}=    Run dialog
+    ${response}=    Run dialog    timeout=5000    height=1080    width=1920
     RETURN    ${response.fileupload}[0]   
 
 Open Browser And Login
