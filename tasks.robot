@@ -69,27 +69,25 @@ ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G
 
 
 Entire Process
-    Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
-    # Test Keyword    batmansehs@yahoo.com    Hkh*psdk1
-    # ${Excel_File_Path}    ${USERNAME}    ${PASSWORD}=    Collect Excel file from the user
-    # Open Browser And Login    ${USERNAME}    ${PASSWORD}
-    # ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
-    # FOR    ${Episode}    IN    @{Episodes}
-    #     ${Title}=    Set Variable
-    #     ...    ${Episode}[TITLE_PREFIX]${Episode}[EPISODE_NUMBER]${Episode}[SEPERATOR] ${Episode}[CATEGORY] - ${Episode}[TITLE] - ${Episode}[GUEST]
-    #     ${Description}=    Set Variable
-    #     ...    ${Episode}[DESCRIPTION_HEADER] <br><br> <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
-    #     @{Date}=    Split String    ${Episode}[PUBLISH_DATE]    ${SPACE}
-    #     ${Day}=    Get From List    ${Date}    0
-    #     ${Month}=    Get From List    ${Date}    1
-    #     ${Year}=    Get From List    ${Date}    2
-    #     @{Time}=    Split String    ${Episode}[PUBLISH_TIME]    ${SPACE}
-    #     ${Hour}=    Get From List    ${Time}    0
-    #     ${Minute}=    Get From List    ${Time}    1
-    #     Upload One File And Thumbnail    ${Episode}[FILENAME]    ${Episode}[THUMBNAIL]
-    #     Enter Episode Details    ${Title}    ${Description}    ${Episode}[EPISODE_NUMBER]
-    #     Enter date    ${Day}    ${Month}    ${Year}    ${Hour}    ${Minute}    ${Episode}[AM_PM]
-    # END
+    ${Excel_File_Path}=    Collect Excel file from the user
+    Open Browser And Login    batmansehs@yahoo.com    Hkh*psdk1
+    ${Episodes}=    Read Excel Sheet    ${Excel_File_Path}
+    FOR    ${Episode}    IN    @{Episodes}
+        ${Title}=    Set Variable
+        ...    ${Episode}[TITLE_PREFIX]${Episode}[EPISODE_NUMBER]${Episode}[SEPERATOR] ${Episode}[CATEGORY] - ${Episode}[TITLE] - ${Episode}[GUEST]
+        ${Description}=    Set Variable
+        ...    ${Episode}[DESCRIPTION_HEADER] <br><br> <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
+        @{Date}=    Split String    ${Episode}[PUBLISH_DATE]    ${SPACE}
+        ${Day}=    Get From List    ${Date}    0
+        ${Month}=    Get From List    ${Date}    1
+        ${Year}=    Get From List    ${Date}    2
+        @{Time}=    Split String    ${Episode}[PUBLISH_TIME]    ${SPACE}
+        ${Hour}=    Get From List    ${Time}    0
+        ${Minute}=    Get From List    ${Time}    1
+        Upload One File And Thumbnail    ${Episode}[FILENAME]    ${Episode}[THUMBNAIL]
+        Enter Episode Details    ${Title}    ${Description}    ${Episode}[EPISODE_NUMBER]
+        Enter date    ${Day}    ${Month}    ${Year}    ${Hour}    ${Minute}    ${Episode}[AM_PM]
+    END
     # Upload One File And Thumbnail    Episode25.mp4    PNG.png
     # Enter Episode Details    Episode_Title    Description    14
     # Enter date    6    05    2023    02    30    PM
@@ -98,16 +96,14 @@ Entire Process
 *** Keywords ***
 Collect Excel file from the user
     Add heading    Upload Excel File
-    Add image    CoverImage.jpeg    width=1300
-    add text input    email    Email Address    placeholder= Enter your email here
-    Add password input    password    Password    placeholder=Enter your password here     
+    Add image    CoverImage.jpeg    width=1300   
     Add file input
     ...    label=Upload the Excel file with Episodes Data
     ...    name=fileupload
     ...    file_type=Excel files (*.xlsx)
     ...    destination=${OUTPUT_DIR}
     ${response}=    Run dialog
-    RETURN    ${response.fileupload}[0]    ${response.email}    ${response.password}
+    RETURN    ${response.fileupload}[0]   
 
 Open Browser And Login
     [Arguments]    ${user}    ${pass}
@@ -132,25 +128,24 @@ Upload One File And Thumbnail
     [Arguments]    ${Episode_Name}    ${Thumbnail}
     Click Element When Visible    ${New-Episode_Button}
     Click Element When Visible    ${Quick-Upload_Button}
+    Sleep    1 second
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
     Click    ${Episode-Upload-File_Coordinates}
-    Sleep    3 seconds
-    RPA.Desktop.Press Keys    SHIFT    windows    G  
-    Sleep    3 seconds
-    Type text into
-    ...    ${Episode-Upload-File_Coordinates}
-    ...    ${Files_To_Upload}${Episode_Name}
-    ...    Clear: bool= FALSE
-    ...    enter: bool= TRUE
+    Sleep    1 second    
+    RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
+    Sleep     5 seconds
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter    
     Wait Until Element Is Enabled    ${Upload-Thumbnail_Button}
     Click Element When Visible    ${Upload-Thumbnail_Button}
     Sleep    1 second
-    Click    ${Thumnnail-Upload_Coordinates}
-    Type text into
-    ...    ${Thumnnail-Upload_Coordinates}
-    ...    ${Files_To_Upload}${Thumbnail}
-    ...    Clear: bool= FALSE
-    ...    enter: bool= TRUE
+    Set Clipboard Value    ${Files_To_Upload}${Thumbnail}
+    Click    ${Episode-Upload-File_Coordinates}
+    Sleep    1 second    
+    RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
+    Sleep     5 seconds
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Click Element When Visible    ${Confirm-Thumbnail_Button}
 
 Enter Episode Details
@@ -160,7 +155,8 @@ Enter Episode Details
     Click Element When Visible    ${Switch-To-HTML_Button}
     Click Element When Visible    ${Description_Field}
     Set Clipboard Value    ${Description}
-    RPA.Browser.Selenium.Press Keys    None    ${Paste_ShortCut}
+    RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
+    
 
 Enter date
     [Arguments]    ${Day}    ${Month}    ${Year}    ${Hour}    ${Min}    ${AMPM}
@@ -300,9 +296,13 @@ Test Keyword
     RPA.Desktop.Press Keys    shift    cmd    esc  
     Sleep    1 second
     Click    ${Episode-Upload-File_Coordinates}
-    Set Clipboard Value    RPAFREAK  
+    Set Clipboard Value    /Users/Se7s/Downloads/  
     Paste From Clipboard    ${Episode-Upload-File_Coordinates}      
-    RPA.Desktop.Press Keys    RETURN 
+    RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
+    Sleep     5 seconds
+    RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
+
 
 
 Test Keyboard   
