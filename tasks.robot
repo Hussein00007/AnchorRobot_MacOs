@@ -14,6 +14,8 @@ Library     Dialogs
 Library     RPA.Dialogs
 
 
+
+
 *** Variables ***
 ${Files_To_Upload}
 ...                                     /Users/se7s/Downloads/
@@ -285,7 +287,15 @@ Enter date
     END
 
     Click Element When Visible    ${Confirm-Date_Button}
-    Wait Until Keyword Succeeds    100x    30 seconds    Click Element    ${Publish_Button}
+    
+    ${publish_Enabled}=    Is Element Enabled    ${Publish_Button}  
+
+    WHILE    ${publish_Enabled} == FALSE
+        sleep     2 seconds
+        ${publish_Enabled}=    Is Element Enabled    ${Publish_Button} 
+    END
+
+    Wait Until Keyword Succeeds    100x    30 seconds    Click Element    ${Publish_Button}  
 
     Click Element When Visible    ${Close-Publish-PopUp_Button}
 
