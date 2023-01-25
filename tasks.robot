@@ -65,7 +65,8 @@ ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G
 ${Publish_Button}                       xpath://*[@id="app-content"]/div/form/div[1]/div[2]/button[2]
 ${USERNAME}                             batmansehs@yahoo.com
 ${PASSWORD}                             Hkh*psdk1
-
+${Cancel_Button}                        xpath://*[@id="app-content"]/div/form/div[2]/div/div/div[1]/div[2]/button
+${Audio_Preview_Available}              xpath://*[@id="app-content"]/div/form/div[2]/div[2]/div/div/div[1]/div[1]/div/span
 #####################
 
 
@@ -288,11 +289,12 @@ Enter date
 
     Click Element When Visible    ${Confirm-Date_Button}
     
-    ${publish_Enabled}=    Is Element Enabled    ${Publish_Button}  
 
-    WHILE    ${publish_Enabled} == 'FALSE'
+    ${Audio_Available_Text}=    Wait Until Keyword Succeeds    300x    5 seconds    Get Text    ${Audio_Preview_Available}
+
+    WHILE    ${Audio_Available_Text} != 'Audio preview available. Your video will be processed when you publish.'
         sleep     2 seconds
-        ${publish_Enabled}=    Is Element Enabled    ${Publish_Button} 
+        ${Audio_Available_Text}=    Wait Until Keyword Succeeds    300x    5 seconds    Get Text    ${Audio_Preview_Available}
     END
     
     Wait Until Keyword Succeeds    300x    5 seconds    Click Button When Visible    ${Publish_Button}  
