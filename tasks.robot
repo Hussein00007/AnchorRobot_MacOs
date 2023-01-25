@@ -290,7 +290,7 @@ Enter date
     
     ${publish_Enabled}=    Is Element Enabled    ${Publish_Button}  
 
-    WHILE    ${publish_Enabled} == FALSE
+    WHILE    ${publish_Enabled} == 'FALSE'
         sleep     2 seconds
         ${publish_Enabled}=    Is Element Enabled    ${Publish_Button} 
     END
