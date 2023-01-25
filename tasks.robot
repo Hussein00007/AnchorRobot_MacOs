@@ -62,7 +62,7 @@ ${Thumnnail-Upload_Coordinates}         coordinates:359,444
 ${Upload-Filename-Write_OCR}            ocr:File name
 ${Paste_ShortCut}                       Windows+v
 ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G 
-${Publish_Button}                       xpath://*[@id="app-content"]/div/form/div[1]/div[2]/button[2]/span[1]
+${Publish_Button}                       xpath://*[@id="app-content"]/div/form/div[1]/div[2]/button[2]
 ${USERNAME}                             batmansehs@yahoo.com
 ${PASSWORD}                             Hkh*psdk1
 
@@ -295,7 +295,6 @@ Enter date
         ${publish_Enabled}=    Is Element Enabled    ${Publish_Button} 
     END
     
-
     Wait Until Keyword Succeeds    5x    5 seconds    Click Button When Visible    ${Publish_Button}  
 
     Click Element When Visible    ${Close-Publish-PopUp_Button}
