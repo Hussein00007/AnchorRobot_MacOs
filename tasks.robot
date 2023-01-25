@@ -230,7 +230,7 @@ Enter date
             FOR    ${Column}    IN    @{DaysColumns}
                 ${Locator}=    Set Variable
                 ...    xpath:/html/body/reach-portal/div[2]/div/div/div/div[2]/div[1]/div/div/div/table/tbody/tr[${Row}]/td[${Column}]
-                ${ExtractedDay}=    Get Text    ${Locator}
+                ${ExtractedDay}=    Wait Until Keyword Succeeds    3x    10 seconds    Get Text    ${Locator}
 
                 IF    '${ExtractedDay}' == '${Day}'                    BREAK
             END
@@ -242,7 +242,7 @@ Enter date
             FOR    ${Column}    IN    @{DaysColumns}
                 ${Locator}=    Set Variable
                 ...    xpath:/html/body/reach-portal/div[2]/div/div/div/div[2]/div[1]/div/div/div/table/tbody/tr[${Row}]/td[${Column}]
-                ${ExtractedDay}=    Get Text    ${Locator}
+                ${ExtractedDay}=    Wait Until Keyword Succeeds    3x    10 seconds    Get Text    ${Locator}
 
                 IF    '${ExtractedDay}' == '${Day}'                    BREAK
             END
