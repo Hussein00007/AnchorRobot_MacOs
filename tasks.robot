@@ -284,7 +284,7 @@ Enter date
     END
 
     Click Element When Visible    ${Confirm-Date_Button}
-    Wait Until Keyword Succeeds    100x    30 seconds    Submit Form
+    Wait Until Keyword Succeeds    100x    30 seconds    Submit Form    css:button[data-encore-id="buttonPrimary"]    
 
     Click Element When Visible    ${Close-Publish-PopUp_Button}
 
