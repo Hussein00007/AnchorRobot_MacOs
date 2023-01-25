@@ -292,7 +292,7 @@ Enter date
 
     ${Audio_Available_Text}=    Wait Until Keyword Succeeds    300x    5 seconds    Get Text    ${Audio_Preview_Available}
 
-    WHILE    ${Audio_Available_Text} != 'Audio preview available. Your video will be processed when you publish.'
+    WHILE    '${Audio_Available_Text}' != 'Audio preview available. Your video will be processed when you publish.'
         sleep     2 seconds
         ${Audio_Available_Text}=    Wait Until Keyword Succeeds    300x    5 seconds    Get Text    ${Audio_Preview_Available}
     END
