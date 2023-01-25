@@ -285,7 +285,7 @@ Enter date
     END
 
     Click Element When Visible    ${Confirm-Date_Button}
-    Wait Until Keyword Succeeds    100x    30 seconds    Submit Form    ${Publish_Button}
+    Wait Until Keyword Succeeds    100x    30 seconds    Click Element    ${Publish_Button}
 
     Click Element When Visible    ${Close-Publish-PopUp_Button}
 
