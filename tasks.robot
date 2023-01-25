@@ -295,7 +295,7 @@ Enter date
         ${publish_Enabled}=    Is Element Enabled    ${Publish_Button} 
     END
     
-    Wait Until Keyword Succeeds    5x    5 seconds    Click Button When Visible    ${Publish_Button}  
+    Wait Until Keyword Succeeds    300x    5 seconds    Click Button When Visible    ${Publish_Button}  
 
     Click Element When Visible    ${Close-Publish-PopUp_Button}
 
