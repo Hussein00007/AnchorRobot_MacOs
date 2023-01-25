@@ -60,6 +60,7 @@ ${Thumnnail-Upload_Coordinates}         coordinates:359,444
 ${Upload-Filename-Write_OCR}            ocr:File name
 ${Paste_ShortCut}                       Windows+v
 ${OpenGoTab_Shortcut}                   COMMAND+SHIFT+G 
+${Publish_Button}                       xpath://*[@id="app-content"]/div/form/div[1]/div[2]/button[2]/span[1]
 ${USERNAME}                             batmansehs@yahoo.com
 ${PASSWORD}                             Hkh*psdk1
 
@@ -284,7 +285,7 @@ Enter date
     END
 
     Click Element When Visible    ${Confirm-Date_Button}
-    Wait Until Keyword Succeeds    100x    30 seconds    Submit Form    css:button[data-encore-id="buttonPrimary"]    
+    Wait Until Keyword Succeeds    100x    30 seconds    Submit Form    ${Publish_Button}
 
     Click Element When Visible    ${Close-Publish-PopUp_Button}
 
