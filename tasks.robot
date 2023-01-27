@@ -82,7 +82,7 @@ Entire Process
         ${Title}=    Set Variable
         ...    ${Episode}[TITLE_PREFIX]${Episode}[EPISODE_NUMBER]${Episode}[SEPERATOR] ${Episode}[CATEGORY] - ${Episode}[TITLE] - ${Episode}[GUEST]
         ${Description}=    Set Variable
-        ...    ${Episode}[DESCRIPTION_HEADER] <br><br> <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
+        ...    ${Episode}[DESCRIPTION_HEADER] <br><br>⚡️ <B>${Episode}[TITLE]</B><br>${Episode}[DESCRIPTION_BODY]<br><br><B>${Episode}[GUEST]</B><br>${Episode}[GUEST_BIO]<br><br>${Episode}[DESCRIPTION_FOOTER]
         @{Date}=    Split String    ${Episode}[PUBLISH_DATE]    ${SPACE}
         ${Day}=    Get From List    ${Date}    0
         ${Month}=    Get From List    ${Date}    1
@@ -139,9 +139,9 @@ Upload One File And Thumbnail
     Sleep     1 second
     Set Clipboard Value    ${Files_To_Upload}${Episode_Name}
     RPA.Desktop.Press Keys    shift    cmd    esc        # path tab
-    Sleep     3 seconds   
+    Sleep     5 seconds   
     RPA.Desktop.Press Keys    shift    cmd    F1         # Paste
-    Sleep     1 second
+    Sleep     3 second
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
     Sleep     3 seconds
     RPA.Desktop.Press Keys    shift    cmd    F2         # Enter
