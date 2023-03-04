@@ -27,9 +27,9 @@ ${Uploaded_Files}
 ${Days15}                               15
 
 ##### Selectors #####
-${New-Episode_Button}                   xpath://*[@id="app"]/div/nav/div/div/div/div[1]/div[3]/div/div[1]/div/button
+${New-Episode_Button}                   xpath://*[@id="app"]/div/nav/div/div/div/div[1]/div[3]/div/div[1]/div/div/button
 ${Quick-Upload_Button}
-...                                     xpath://*[@id="app"]/div/nav/div/div/div/div[1]/div[3]/div/div[1]/div/div/div/div/button
+...                                     xpath://*[@id="app"]/div/nav/div/div/div/div[1]/div[3]/div/div[1]/div/div[2]/div/ul/li[2]/button
 ${Upload_PopUp_Field}                   coordinates:1550,710
 ${Upload-Thumbnail_Button}              xpath://*[@id="app-content"]/div/form/div[7]/div[2]/div/button
 ${Confirm-Thumbnail_Button}             xpath:/html/body/reach-portal/div[2]/div/div/div/div[2]/div/div[2]/button[2]
