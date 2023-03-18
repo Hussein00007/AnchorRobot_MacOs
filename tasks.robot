@@ -120,7 +120,7 @@ Open Browser And Login
     # ${secret}=    Get Secret    Anchor_Creds
     Input Text When Element Is Visible    id:email    ${user}
     Input Text When Element Is Visible    id:password    ${pass}
-    Click Element When Visible    alias:Span
+    Submit Form
 
 Read Excel Sheet
     [Arguments]    ${Excel_Path}
