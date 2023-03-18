@@ -27,7 +27,8 @@ ${Uploaded_Files}
 ${Days15}                               15
 
 ##### Selectors #####
-${New-Episode_Button}                   xpath://*[@id="app"]/div/nav/div/div/div/div[1]/div[3]/div/div[1]/div/div/button
+${New-Episode_Button}                   xpath://*[@id="app"]/div/header/div[2]/span/div[1]/div/div/div/button
+
 ${Quick-Upload_Button}
 ...                                     xpath://*[@id="app"]/div/nav/div/div/div/div[1]/div[3]/div/div[1]/div/div[2]/div/ul/li[2]/button
 ${Upload_PopUp_Field}                   coordinates:1550,710
